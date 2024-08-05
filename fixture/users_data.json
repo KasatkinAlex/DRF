@@ -1,0 +1,101 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$Qb0tkXxmT6uzFxFM1Ms43Z$EQi6H/KdMcuA6K4DwV9w1XQcWNgoBizSOeXJP31l6QQ=",
+      "last_login": "2024-08-05T18:26:08.219Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-08-05T18:25:43.422Z",
+      "avatar": "",
+      "phone": null,
+      "country": null,
+      "email": "akasatkin1990@mail.ru",
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "12345",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Александр",
+      "last_name": "Касаткин",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-05T18:39:17Z",
+      "avatar": "",
+      "phone": "89634826006",
+      "country": "Россия",
+      "email": "al.kasatkin1990@gmail.com",
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.userpayment",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "date_payment": "2024-08-05",
+      "amount": 1000.0,
+      "method": "Наличные",
+      "course_paid": [],
+      "lesson_paid": []
+    }
+  },
+  {
+    "model": "users.userpayment",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "date_payment": "2024-08-05",
+      "amount": 3000.0,
+      "method": "Перевод на счет",
+      "course_paid": [],
+      "lesson_paid": []
+    }
+  },
+  {
+    "model": "users.userpayment",
+    "pk": 3,
+    "fields": {
+      "user": 2,
+      "date_payment": "2024-08-05",
+      "amount": 900000.0,
+      "method": "Наличные",
+      "course_paid": [
+        6
+      ],
+      "lesson_paid": [
+        5,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "model": "users.userpayment",
+    "pk": 4,
+    "fields": {
+      "user": 2,
+      "date_payment": "2024-08-05",
+      "amount": 1555.0,
+      "method": "Перевод на счет",
+      "course_paid": [],
+      "lesson_paid": [
+        9,
+        6
+      ]
+    }
+  }
+]
