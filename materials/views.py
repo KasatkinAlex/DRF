@@ -1,12 +1,16 @@
 from rest_framework import viewsets, generics
 
 from materials.models import Courses, Lesson
-from materials.serializers import CoursesSerializer, LessonSerializer
+from materials.serializers import CoursesSerializer, LessonSerializer, CoursesDetailSerializer
 
 
 class CoursesViewSet(viewsets.ModelViewSet):
     queryset = Courses.objects.all()
-    serializer_class = CoursesSerializer
+
+    def get_serializer_class(self):
+        if self.action == 'retrieve':  # действие == "просмотр"
+            return CoursesDetailSerializer
+        return CoursesSerializer
 
 
 class LessonListAPIView(generics.ListAPIView):

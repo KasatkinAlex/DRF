@@ -1,0 +1,86 @@
+[
+  {
+    "model": "materials.courses",
+    "pk": 6,
+    "fields": {
+      "name": "python",
+      "image": "",
+      "description": "python"
+    }
+  },
+  {
+    "model": "materials.courses",
+    "pk": 7,
+    "fields": {
+      "name": "java",
+      "image": "",
+      "description": ""
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 4,
+    "fields": {
+      "name": "1",
+      "description": "1",
+      "image": "",
+      "video": null,
+      "courses": 6
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 5,
+    "fields": {
+      "name": "2",
+      "description": "",
+      "image": "",
+      "video": null,
+      "courses": 6
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 6,
+    "fields": {
+      "name": "ООП",
+      "description": "",
+      "image": "",
+      "video": null,
+      "courses": 6
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 7,
+    "fields": {
+      "name": "100",
+      "description": "",
+      "image": "",
+      "video": null,
+      "courses": 7
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 8,
+    "fields": {
+      "name": "200",
+      "description": "",
+      "image": "",
+      "video": null,
+      "courses": 6
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 9,
+    "fields": {
+      "name": "html",
+      "description": "",
+      "image": "",
+      "video": null,
+      "courses": 7
+    }
+  }
+]

@@ -23,6 +23,13 @@ class Lesson(models.Model):
                               help_text='Загрузите изображение урока')
     video = models.CharField(max_length=150, verbose_name='ссылка на видео',
                              help_text='вставте ссылку на видео', null=True, blank=True)
-    courses = models.ForeignKey(Courses, on_delete=models.SET_NULL, verbose_name='выберите курс', null=True, blank=True)
+    courses = models.ForeignKey(Courses, on_delete=models.SET_NULL, verbose_name='выберите курс',
+                                null=True, blank=True, related_name='lesson')
 
+    def __str__(self):
+        return f'{self.name}'
 
+    class Meta:
+        verbose_name = 'Урок'
+        verbose_name_plural = 'Уроки'
+        ordering = ['name']
