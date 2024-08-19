@@ -16,3 +16,14 @@ class Command(BaseCommand):
 
         user.set_password('12345')
         user.save()
+
+        user1 = User.objects.create(
+            email='test@mail.ru',
+            first_name='Admin',
+            last_name='Admin',
+            is_staff=False,
+            is_superuser=False
+        )
+
+        user1.set_password('12345')
+        user1.save()
