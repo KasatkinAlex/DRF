@@ -12,7 +12,7 @@ class IsModer(permissions.BasePermission):
 
 
 class IsOwner(permissions.BasePermission):
-    message = 'Вы не являетесь ни менеджером, ни создателем'
+    message = 'Вы не являетесь создателем'
 
     def has_object_permission(self, request, view, obj):
         if obj.owner == request.user:

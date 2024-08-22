@@ -3,6 +3,7 @@ from django.db import models
 from config.settings import AUTH_USER_MODEL
 
 
+
 class Courses(models.Model):
     name = models.CharField(max_length=50, verbose_name='название', help_text='введите название')
     image = models.ImageField(upload_to='course_image/', verbose_name='Изображение', null=True, blank=True,
@@ -37,3 +38,16 @@ class Lesson(models.Model):
         verbose_name = 'Урок'
         verbose_name_plural = 'Уроки'
         ordering = ['name']
+
+
+class Subscriptions(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, related_name="subscriber")
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, related_name="subscribed_course")
+    create_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата начала подписки")
+
+    class Meta:
+        verbose_name = "подписка"
+        verbose_name_plural = "подписки"
+
+    def __str__(self):
+        return f"{self.user} - {self.course}"
