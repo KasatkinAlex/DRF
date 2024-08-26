@@ -37,13 +37,15 @@ class UserPayment(models.Model):
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', related_name='user')
-    date_payment = models.DateField(verbose_name='Дата оплаты')
+    date_payment = models.DateField(verbose_name='Дата оплаты', auto_now_add=True)
     course_paid = models.ManyToManyField(Courses, verbose_name='выберите курс',
                                          blank=True, related_name='user_payment_course')
     lesson_paid = models.ManyToManyField(Lesson, verbose_name='выберите урок',
                                          blank=True, related_name='user_payment_lesson')
     amount = models.FloatField(verbose_name='сумма оплаты')
     method = models.CharField(max_length=50, choices=PAYMENT_METHOD, verbose_name='Способ оплаты')
+    session_id = models.CharField(max_length=255, null=True, blank=True, verbose_name='ID сессии')
+    link = models.URLField(max_length=400, null=True, blank=True, verbose_name='Cсылка на оплату')
 
     def __str__(self):
         return f'{self.user}'

@@ -1,4 +1,4 @@
-django==4.2.2
+django==5.1
 pillow==10.4.0
 psycopg2==2.9.9
 djangorestframework==3.15.2
@@ -7,3 +7,7 @@ django-filter==24.3
 sqlparse==0.5.1
 djangorestframework-simplejwt==5.3.1
 coverage==7.6.1
+coreapi==2.3.3
+drf-yasg==1.21.7
+setuptools==73.0.1
+stripe==10.8.0
