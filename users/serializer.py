@@ -19,16 +19,8 @@ class UserPaymentSerializer(serializers.ModelSerializer):
 
 
 class UserSerializerList(serializers.ModelSerializer):
-    # payment_list = serializers.SerializerMethodField(read_only=True)
-    payment = UserPaymentSerializer(read_only=True, many=True)
+    payment_list = UserPaymentSerializer(source="user", many=True)   # source="user" это взяли из описании модели related_name
 
     class Meta:
         model = User
-        fields = ('email', 'phone', 'avatar', 'payment')
-
-    # def get_payment_list(self, instance):
-    #     return instance.payment.count()
-
-
-
-
+        fields = ("email", "phone", "avatar", "payment_list")
