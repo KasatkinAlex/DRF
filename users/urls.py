@@ -4,7 +4,7 @@ from rest_framework.routers import SimpleRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from users.apps import UsersConfig
-from users.views import UserPaymentViewSet, UserPaymentListView, UserCreateAPIView
+from users.views import UserPaymentViewSet, UserPaymentListView, UserCreateAPIView, UserPaymentsCreateAPIView
 
 app_name = UsersConfig.name
 
@@ -14,6 +14,7 @@ router.register(r'userpayment', UserPaymentViewSet)
 urlpatterns = [
     path('register/', UserCreateAPIView.as_view(), name='register'),
     path('payment/', UserPaymentListView.as_view(), name='userpayment_list'),
+    path('payment/create/', UserPaymentsCreateAPIView.as_view(), name='userpayment_create'),
     path('login/', TokenObtainPairView.as_view(permission_classes=(AllowAny,)), name='login'),
     path('token/refresh/', TokenRefreshView.as_view(permission_classes=(AllowAny,)), name='token_refresh'),
     # path('lesson/<int:pk>', LessonRetrieveAPIView.as_view(), name='lesson_detail'),

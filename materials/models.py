@@ -3,7 +3,6 @@ from django.db import models
 from config.settings import AUTH_USER_MODEL
 
 
-
 class Courses(models.Model):
     name = models.CharField(max_length=50, verbose_name='название', help_text='введите название')
     image = models.ImageField(upload_to='course_image/', verbose_name='Изображение', null=True, blank=True,

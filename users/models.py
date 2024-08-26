@@ -44,6 +44,8 @@ class UserPayment(models.Model):
                                          blank=True, related_name='user_payment_lesson')
     amount = models.FloatField(verbose_name='сумма оплаты')
     method = models.CharField(max_length=50, choices=PAYMENT_METHOD, verbose_name='Способ оплаты')
+    session_id = models.CharField(max_length=255, null=True, blank=True, verbose_name='ID сессии')
+    link = models.URLField(max_length=400, null=True, blank=True, verbose_name='Cсылка на оплату')
 
     def __str__(self):
         return f'{self.user}'
