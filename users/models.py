@@ -37,7 +37,7 @@ class UserPayment(models.Model):
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', related_name='user')
-    date_payment = models.DateField(verbose_name='Дата оплаты')
+    date_payment = models.DateField(verbose_name='Дата оплаты', auto_now_add=True)
     course_paid = models.ManyToManyField(Courses, verbose_name='выберите курс',
                                          blank=True, related_name='user_payment_course')
     lesson_paid = models.ManyToManyField(Lesson, verbose_name='выберите урок',
