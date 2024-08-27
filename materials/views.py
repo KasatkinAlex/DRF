@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 from materials.models import Courses, Lesson, Subscriptions
 from materials.paginators import MyPagination
 from materials.serializers import CoursesSerializer, LessonSerializer, CoursesDetailSerializer, SubscriptionSerializer
+from materials.tasks import user_send_mail
 from users.permissions import IsModer, IsOwner
 
 
@@ -23,6 +24,12 @@ class CoursesViewSet(viewsets.ModelViewSet):
         """Автоматическое присвоение владельца уроку"""
         course = serializer.save()
         course.owner = self.request.user
+        course.save()
+
+    def perform_update(self, serializer):
+        """Отправляем уведомление всем подписанным пользователям"""
+        course = serializer.save()
+        user_send_mail.delay(course_id=course.id)
         course.save()
 
     def get_permissions(self):

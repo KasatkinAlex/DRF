@@ -35,7 +35,6 @@ class UserPaymentsCreateAPIView(CreateAPIView):
         payments = serializer.save()
         payments.user = self.request.user
         stripe_product_id = create_stripe_product(payments)
-        # payments.amount = payments.payment_sum
         price = create_stripe_price(stripe_product_id=stripe_product_id, amount=payments.amount)
         session_id, payment_link = create_stripe_session(price=price)
         payments.session_id = session_id
