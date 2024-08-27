@@ -40,7 +40,9 @@ class Lesson(models.Model):
 
 
 class Subscriptions(models.Model):
-    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, related_name="subscriber")
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE,
+                             null=True, blank=True,
+                             related_name="subscriber")
     course = models.ForeignKey(Courses, on_delete=models.CASCADE, related_name="subscribed_course")
     create_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата начала подписки")
 
